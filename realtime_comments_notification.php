@@ -3,9 +3,9 @@
 /**
  * Plugin Name: Realtime Comments
  * Description: Prüft im Frontend auf neue Kommentare via Heartbeat und lädt diese bei Bedarf nach. Das Plugin nutzt "Lazy Load for Comments" von Joel James, zum automatischen Nachladen der Kommentare. Deshalb sollte dieses Plugin ebenfalls installiert und aktiviert sein.
- * Version: 0.0.2
- * requires at least: 6.0
- * Tested up to: 6.6
+ * Version: 0.1
+ * requires at least: 6.4.5
+ * Tested up to: 6.7
  * Requires Plugins: lazy-load-for-comments
  * Author: Joachim Happel
  */
