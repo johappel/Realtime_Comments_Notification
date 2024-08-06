@@ -1,9 +1,12 @@
 <?php
 
 /**
- * Plugin Name: Realtime Comments Notification
- * Description: Benachrichtigt Besucher über neue Kommentare und lädt diese via AJAX. Dieses Plugin nutzt "Lazy Load for Comments" von Joel James, zum automatischen Nachladen der Kommentare. Deshalb sollte dieses Plugin ebenfalls installiert und aktiviert sein.
- * Version: 0.0.1
+ * Plugin Name: Realtime Comments
+ * Description: Prüft im Frontend auf neue Kommentare via Heartbeat und lädt diese bei Bedarf nach. Das Plugin nutzt "Lazy Load for Comments" von Joel James, zum automatischen Nachladen der Kommentare. Deshalb sollte dieses Plugin ebenfalls installiert und aktiviert sein.
+ * Version: 0.0.2
+ * requires at least: 6.0
+ * Tested up to: 6.6
+ * Requires Plugins: lazy-load-for-comments
  * Author: Joachim Happel
  */
 
@@ -12,15 +15,10 @@ class Realtime_Comments_Notification
     public function __construct()
     {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-        add_filter('heartbeat_send', array($this,'send_heartbeat_data'));
         add_filter('heartbeat_received', array($this,'receive_heartbeat'), 10, 2);
 
     }
 
-    public function send_heartbeat_data($response)
-    {
-        return $response;
-    }
     public function receive_heartbeat($response, $data)
     {
         error_log('receive_heartbeat');
